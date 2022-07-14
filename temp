@@ -1,0 +1,242 @@
+Take a general example: what is the general meaning of object? its nothing but which occupies some space right....keep that in mind we now talk about Object in java or C++
+
+example: here I am creating Object     Student std=new Student();
+
+where Student is a Class and std is a Object because we Created a memory for std with the help of new keyWord it means it internally occupies some space in memory right thats y we call std as Object
+
+if you won`t create memory for an object so we call that object as instance.
+
+example: Student std;
+
+here Student is a class and std is a instance(means a just a copy that class),with this we won`t do anything untill unless we create a memory for that.
+
+Thats all about object and Instance :)
+
+
+
+Here the object of type Student is created using a new operator in heap and the address is returned in variable s1, then default construct student() is called.
+
+
+char *m = "mustapha";
+
+char m[] = "mustapha";
+
+
+char *ptr;
+
+ptr = m;
+
+it is the same of case of char *ptr = "mustapha";
+Person* name = new Person(); // create in heap
+In this case, we're creating an object name of type Person* (pointer to Person). 
+We are also creating another object of type Person using the expression new Person().
+ This expression returns a pointer, which we are initialising the name object with.
+
+
+
+
+
+
+
+
+
+
+
+
+
+- create array of 8 elements.(It can store a maximum of 8 contacts. If the user tries to add a 9th contact,
+replace the oldest one by the new one.)
+
+- create 2 classess :
+
+    PhoneBook , Contact
+
+- On program start-up, the phonebook is empty
+
+- prompt : 
+
+    • ADD: save a new contact
+    • SEARCH: display a specific contact
+    • EXIT
+
+
+- the program always wait after inputs
+- the program stop if the user input EXIT
+
+
+
+first name
+
+ last name
+
+  nickname
+ 
+   phone number
+
+    darkest secret
+
+
+======================================================================================
+
+
+
+we have a phonebook in this phone book we have 8 contact
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Contact Contact::set_values(Contact ctc)
+{
+    string command;
+
+    cin >>  command;
+    while (command != "EXIT")
+    {
+        cout << "enter one of three commands: " << endl;
+        cout << "     ADD: save a new contact." << endl;
+        cout << "     SEARCH: display a specific contact" << endl;
+        cout << "     EXIT: EXIT the program." << endl;
+
+        if(command == "ADD")
+            add_new_contact();
+        cin >>  command;
+
+ 
+         
+    }
+     
+    return ctc;
+}
+
+
+
+
+string command;
+
+
+
+first name, last name, nickname, phone number,
+
+    cin >>  command;
+    while (command != "EXIT")
+    {
+        cout << "enter one of three commands: " << endl;
+        cout << "     ADD: save a new contact." << endl;
+        cout << "     SEARCH: display a specific contact" << endl;
+        cout << "     EXIT: EXIT the program." << endl;
+
+        if(command == "ADD")
+            c[0].set_values();
+        cin >>  command;
+
+ 
+         
+    }
+
+
+
+
+
+
+
+
+
+
+void PhoneBook::creat_contact()
+{
+    PhoneBook obj;
+    int i;
+    string command;
+
+    i = 0;
+    cout << "enter one of three commands: " << endl;
+    cout << "     ADD: save a new contact." << endl;
+    cout << "     SEARCH: display a specific contact" << endl;
+    cout << "     EXIT: EXIT the program." << endl;
+    cin >>  command;
+
+    while (command != "EXIT")
+    {
+        if(command == "ADD")
+        {
+            c[i].set_values();
+            i++;
+        }
+        else if(command == "SEARCH")
+            c[0].display_contacts(i,c);
+        else if(command == "EXIT")
+            break;
+        cout << "enter one of three commands: " << endl;
+        cout << "     ADD: save a new contact." << endl;
+        cout << "     SEARCH: display a specific contact" << endl;
+        cout << "     EXIT: EXIT the program." << endl;
+        cin >>  command;
+        if(i == 8)
+            i = 7;
+    }
+       
+}
+
+    
+
+void Contact::set_values()
+{
+    
+    cout << "first name: ";
+    cin >> firstName;
+    cout << "last name: ";
+    cin >> lastName;
+    cout << "nickname: ";
+    cin >> nickName;
+    cout << "phone number: ";
+    cin >> phoneNumber;
+    
+}
+ 
+void Contact::display_contacts(int i, Contact c[])
+{
+    int x;
+    int index;
+
+    x = 0;
+    while (x < i)
+    {
+        cout << "\n\n";
+        cout << x + 1 << "   | " << c[x].firstName << " | " << c[x].lastName << " | " << c[x].nickName << " | " << c[x].phoneNumber << endl;
+        cout << "\n\n";
+    
+        x++;
+    }
+    // cout << "enter the index: " << endl;
+    // cin >> index;
+    // if(index > i || index <= 0)
+    //     cout << "index out of range.\n";
+    // else
+    // {
+        
+    //     cout << "first Name: " + c[index - 1].firstName << endl;
+    //     cout << "last Name: " + c[index - 1].lastName << endl;
+    //     cout << "nick name: " + c[index - 1].nickName << endl;
+    //     cout << c[index - 1].phoneNumber << endl;
+    // }
+}
+ 
+
+
+ void set_values();
+        void display_contacts(int i, Contact obj[]);
+        void print_contacts();

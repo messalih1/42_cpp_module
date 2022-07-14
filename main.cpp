@@ -1,27 +1,24 @@
 #include <iostream>
 #include <string>
+#include <cstring>
+
+#include"contact.hpp"
+#include"PhoneBook.hpp"
+
 
 using namespace std;
+ 
 
-// oop is the convert real life into program
-
-// by default the attributs in a class is private not be access in outside the class
-
-//  ,
-
-class Rectangle{
-
-    int age;
-    double salary;
-    string name;
-
-};
-
+ 
 
 int main()
 {
+     
+    PhoneBook p;
 
-    Rectangle r1;
+    p.creat_contact();
+   
 
-
+    
+    return 0;
 }
