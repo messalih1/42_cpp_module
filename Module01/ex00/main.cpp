@@ -7,8 +7,7 @@
 using namespace std;
 
     
-void randomChump( std::string name );
-Zombie* newZombie( std::string name );
+
 
 
 int main()
