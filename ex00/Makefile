@@ -1,21 +1,20 @@
-NAME = zombie
-
+NAME = megaphone
 
 CC = c++
 C_FLAGS = -Wall -Wextra -Werror -std=c++98
 
-C_FILES = randomChump.cpp main.cpp newZombie.cpp Zombie.cpp
+C_FILES = megaphone.cpp
 
 O_FILES = $(C_FILES:.cpp=.o)
 
 
 %.o: %.cpp
-	@${CC} ${C_FLAGS}  -c $< -o $@
+	@${CC} ${C_FLAGS} -c $< -o $@
 
 all: ${NAME}
 
 ${NAME}: ${O_FILES}
-	@${CC} ${C_FLAGS} ${O_FILES}  -o ${NAME}
+	@${CC} ${C_FLAGS} ${O_FILES} -o ${NAME}
 
 clean:
 	@rm -f ${O_FILES}
