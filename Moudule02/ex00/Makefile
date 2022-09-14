@@ -6,10 +6,6 @@ C_FILES = Fixed.cpp main.cpp
 
 O_FILES = $(C_FILES:.cpp=.o)
 
-
-%.o: %.cpp header.h
-	@${CC}  -c $< -o $@
-
 all: ${NAME}
 
 ${NAME}: ${O_FILES} 

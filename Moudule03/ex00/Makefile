@@ -1,19 +1,21 @@
 NAME = claptrap
 
-C_FILES = main.cpp ClapTrap.cpp
+C_FILES = main.cpp ClapTrap.cpp ScavTrap.cpp
 
-O_FILES = $(C_FILES:.cpp = .o)
-
+ 
 CC = c++
  
+O_FILES = $(C_FILES:.cpp=.o)
 
-%.o: %.cpp
-	@${CC}  -c $< -o $@
+# %.o: %.cpp the same of O_FILES = $(C_FILES:.cpp=.o)
+
+%.o: %.cpp # without this, if remove in fclean wil remove cpp files
+	@${CC}  -c $< -o $@ 
 
 all: ${NAME}
 
 ${NAME}: ${O_FILES}
-	@${CC}  ${O_FILES} -o ${NAME}
+	@${CC}  ${O_FILES} -o $(NAME)
 
 clean:
 	@rm -f ${O_FILES}
