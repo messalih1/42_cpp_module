@@ -3,10 +3,10 @@
 
 ClapTrap::ClapTrap()
 {
-    cout << "start from base class  ..." << endl;
+    cout << "start from default constructor  ..." << endl;
 }
 
-ClapTrap::ClapTrap(string n):name(n),hit_points(100),energy_points(50),attack_damage(10) 
+ClapTrap::ClapTrap(string n):name(n),hit_points(10),energy_points(10),attack_damage(0) 
 {
     cout << "start ..." << endl;
 }
@@ -22,7 +22,6 @@ ClapTrap::ClapTrap(const ClapTrap &obj)
 ClapTrap::~ClapTrap()
 {
     cout << "end ... from base class" << endl;
-
 }
 
 void ClapTrap::attack(const std::string& target)
@@ -37,6 +36,7 @@ void ClapTrap::attack(const std::string& target)
     }
     
 }
+
 
 
 void ClapTrap::beRepaired(unsigned int amount)
@@ -55,3 +55,22 @@ void ClapTrap::takeDamage(unsigned int amount)
     cout << "attack damage increment.." << endl;
 }
  
+
+
+
+void ClapTrap::set__name(string n){name = n;};
+void ClapTrap::hit__points(int n){hit_points = n;};
+void ClapTrap::energy__points(int n){energy_points = n;};
+void ClapTrap::attack__damage(int n){attack_damage = n;};
+
+
+string ClapTrap::getName(){return name;};
+int ClapTrap::get_hitPoints(){return hit_points;};
+int ClapTrap::get_energyPoints(){return energy_points;};
+int ClapTrap::get_attackDamage(){return attack_damage;};
+
+
+
+
+
+

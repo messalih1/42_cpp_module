@@ -4,14 +4,10 @@
 
  
  
-int main()
+int main(int ac, char *av[])
 {
     
-    ClapTrap clap1;
-    ClapTrap clap(clap1);
-
-    ScavTrap(clap);
-
+   
     
  
 
