@@ -2,25 +2,14 @@
 #define WRONGCAT_H
 
 #include "WrongAnimal.h"
-// #include "WrongCat.h"
-
 
 class WrongCat: public WrongAnimal
 {
-    private:
-        /* data */
-    public:
-        string  getType()const;
-        void makeSound()const;
-        WrongCat();
-        ~WrongCat();
+	public:
+		WrongCat();
+		~WrongCat();
+		void	makeSound()const;
+        string getType()const;
 };
-
-
-
-
-
-
-
 
 #endif

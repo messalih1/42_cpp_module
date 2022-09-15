@@ -5,7 +5,7 @@
 
 
 
-WrongAnimal::WrongAnimal(/* args */)
+WrongAnimal::WrongAnimal()
 {
     cout << "from WrongAnimal default constructor" << endl;
     type = "WrongAnimal";

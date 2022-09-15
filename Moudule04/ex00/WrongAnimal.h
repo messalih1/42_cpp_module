@@ -3,31 +3,19 @@
 
 #include <iostream>
 
-#include <cstring>
-
 using std::cout;
 using std::endl;
 using std::string;
 
-#include "WrongAnimal.h"
-
-class WrongAnimal 
+class WrongAnimal
 {
-    protected:
-        string type;
-    public:
-        virtual  string  getType()const;
-        virtual void makeSound()const;
-        WrongAnimal(/* args */);
-        ~WrongAnimal();
+	protected:
+		string	type;
+	public:
+		WrongAnimal();
+		~WrongAnimal();
+		string	getType()const;
+		void	makeSound()const;
 };
-
-
-
-
-
-
-
-
 
 #endif

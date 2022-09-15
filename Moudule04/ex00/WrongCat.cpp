@@ -16,18 +16,13 @@ WrongCat::~WrongCat()
 }
 
 
- 
- 
-
-
-
-string  WrongAnimal::getType()const
+string  WrongCat::getType()const
 {
     return type;
 }
 
 
-void  WrongAnimal::makeSound()const
+void  WrongCat::makeSound()const
 {
    cout << "WrongCat ooooo" << endl;
 }
