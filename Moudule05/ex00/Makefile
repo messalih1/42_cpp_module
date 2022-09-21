@@ -8,13 +8,9 @@ CC = c++
 
 all : $(NAME)
 
-
-# %.o : %.cpp
-# 	@CC -c $< -o $@
-
-${NAME}: ${O_FILES} Bureaucrat.h
-	@${CC}  ${O_FILES} -o $(NAME)
-
+${NAME}: ${O_FILES} 
+	@${CC}  ${O_FILES}  -o $(NAME)
+	
 clean:
 	@rm -f ${O_FILES}
 

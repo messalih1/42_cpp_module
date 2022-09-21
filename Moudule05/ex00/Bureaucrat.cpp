@@ -3,9 +3,15 @@
 
 
 
-Bureaucrat::Bureaucrat():name("name"),grade(1)
+Bureaucrat::Bureaucrat():name("name"),grade(5)
 {
+    if(grade < 1)
+        throw GradeTooHighException();// call class member in my class
+    else if(grade > 150)
+        throw GradeTooLowException();   
 }
+ 
+
 
 Bureaucrat::~Bureaucrat()
 {
@@ -18,44 +24,25 @@ string Bureaucrat::getName()
 }
 
 
-
+ 
 int Bureaucrat::getGrade()
 {
-    
-    
     return grade;
 }
 
 
-void Bureaucrat::GradeTooHighException()
-{
-    // if(getGrade() > 10)
+ 
 
+void Bureaucrat::increment()
+{
+    grade--;
+    if(grade < 1)
+        throw GradeTooHighException();
 }
 
-
-int Bureaucrat::increment()
+void Bureaucrat::decrement()
 {
-    int     i;
-
-    i = 0;
-    while (i < 10)
-    {
-        grade++;
-        i++;
-    }
-    return grade;
-}
-
-int Bureaucrat::decrement()
-{
-    int     i;
-
-    i = 0;
-    while (i < 10)
-    {
-        grade--;
-        i++;
-    }
-    return grade;
+    grade++;
+    if(grade > 150)
+        throw GradeTooLowException(); 
 }

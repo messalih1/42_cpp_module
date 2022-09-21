@@ -12,7 +12,6 @@ using std::string;
 using std::cin;
 
 
- 
 
 class Bureaucrat
 {
@@ -20,15 +19,35 @@ class Bureaucrat
         string const name;
         int         grade;
     public:
-        void GradeTooHighException();
-        void GradeTooLowException();    
+
+        // class member
+        class GradeTooHighException : public std::exception{
+            
+            const char * what() const throw()
+            {
+                return "is Grade Too High";
+            }
+
+        };
+        class GradeTooLowException : public std::exception{
+           
+            const char * what() const throw()
+            {
+                return "is Grade Too low";
+            }
+
+        };
+
+
+
         string    getName();
         int    getGrade();
-        int ç();
-        int decrement();
+        void increment(); 
+        void decrement();
         Bureaucrat(/* args */);
         ~Bureaucrat();
 };
+
 
 
 
