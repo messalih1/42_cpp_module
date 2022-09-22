@@ -1,27 +1,21 @@
 #include "Bureaucrat.h"
+#include "Form.h"
 
  
-/*
-    Any attempt to instantiate a Bureaucrat using an invalid grade must throw an exception:
-    either a Bureaucrat::GradeTooHighException or a Bureaucrat::GradeTooLowException
-*/
-
-
-
-std::ostream & operator << (std::ostream &out, const Bureaucrat &c);
+std::ostream & operator << (std::ostream &out,  Bureaucrat &c);
  
 std::ostream & operator << (std::ostream &out,   Bureaucrat &c)
 {
-    
     out << c.getName() << ", bureaucrat grade " << c.getGrade();
     return out;
-}
+} 
+ 
  
 int main()
 {
     try
     {
-       Bureaucrat c1;
+        Bureaucrat c1;
         cout << c1;
 
     }
