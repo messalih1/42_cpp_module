@@ -21,7 +21,7 @@ public:
     bool get_is_signed();
     int get_grade_sign() const;
     int get_grade_excec() const;
-    bool beSigned(Bureaucrat &b);
+    void beSigned(Bureaucrat &b);
     ~Form();
 
     class GradeTooHighException : public std::exception{
@@ -38,20 +38,6 @@ public:
             return "Form: is Grade Too low";
         }
     };
-
-
 };
-
-
-
-
-
-
-
-
-
-
-
-
 
 #endif

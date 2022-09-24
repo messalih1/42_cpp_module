@@ -19,7 +19,7 @@ std::ostream & operator << (std::ostream &out,   Form &f)
     out << f.get_is_signed() << endl;
     out << f.get_grade_sign() << endl;
     out << f.get_grade_excec() << endl;
-    out << f.beSigned(b) << endl;
+  
     return out;
 }
  
@@ -28,13 +28,19 @@ int main()
     try
     {
         Form f;
-        cout << f;
+        Bureaucrat b;
+        f.beSigned(b);
+        b.signForm(f);
     }
-    catch(std::exception &e)
+    catch(const std::exception& e)
     {
-        cout << e.what();
+        cout << e.what() << '\n';
     }
- 
+    
+
+
+
+   
    return 0;
 }
  

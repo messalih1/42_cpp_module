@@ -13,30 +13,23 @@ Bureaucrat::Bureaucrat():name("name"),grade(5)
  
 
 
-Bureaucrat::~Bureaucrat()
-{
-}
-
 
 string Bureaucrat::getName()
 {
     return name;
 }
 
-
- 
 int Bureaucrat::getGrade()
 {
     return grade;
 }
-
 
 void Bureaucrat::signForm(Form &f)
 {
     if(f.get_is_signed() == true)
         cout << this->getName() << " signed " << f.getName();
     else
-        cout << this->getName() <<  " couldn't sign " << f.getName() << " because " <<  f.get_is_signed() << endl;
+        cout << this->getName() <<  " couldn't sign " << f.getName() << " because grade > sign"  << endl;
 }
 
 void Bureaucrat::increment()
@@ -51,4 +44,9 @@ void Bureaucrat::decrement()
     grade++;
     if(grade > 150)
         throw GradeTooLowException(); 
+}
+
+
+Bureaucrat::~Bureaucrat()
+{
 }

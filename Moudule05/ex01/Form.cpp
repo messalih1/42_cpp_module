@@ -16,19 +16,14 @@ Form::Form():name("Form"),is_signed(false),grade_sign(6),grade_excec(0)
         throw GradeTooHighException();
     else if(grade_excec < 0)
         throw GradeTooLowException();
-
 }
 
-bool Form::beSigned(Bureaucrat &b)
+void Form::beSigned(Bureaucrat &b)
 {
     if(b.getGrade() <= this->grade_sign)
-    {
         is_signed = true;
-        return is_signed;
-    }
     else
         throw GradeTooLowException();
-     
 }
 
 bool Form::get_is_signed()
