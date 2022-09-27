@@ -1,14 +1,29 @@
-#include <iostream>
-#include <string>
-#include <iomanip>
-#include <climits>
-#include <limits.h>
-#include <cfloat>
-#include <climits>
-using std::cout;
-using std::endl;
-using std::string;
+#include "cast.h"
 
+long long	ft_atoi(const char *str)
+{
+	int		i;
+	long		nbr;
+	int		n;
+
+	i = 0;
+	nbr = 0;
+	n = 0;
+	while (str[i] != '\0' && (str[i] == 32 || (str[i] >= 9 && str[i] <= 13)))
+		i++;
+	if (str[i] != '\0' && str[i] == '-')
+	{
+		n = 1;
+		i++;
+	}
+	else if (str[i] == '+')
+		i++;
+	while (str[i] != '\0' && isdigit(str[i]))
+		nbr = (nbr * 10) + (str[i++] - '0');
+	if (n == 1)
+		return (-nbr);
+	return (nbr);
+}
 
 int is_valid(std::string str)
 {
@@ -48,19 +63,20 @@ int is_valid(std::string str)
 void call_cast(std::string num)
 {
     float   number;
-    int     integer;
+    long  long   integer;
     double  d;
     char    c;
 
-    if(!isdigit(num[0]) && num[0] != '.')
+    if(!isdigit(num[0]) && num[0] != '.' && num[0] != '-')
     {
         c = num[0]; 
         if(isprint(c))
             cout << "char: " << "'" << c << "'" << endl;
         else
-            cout << "Non displayable" << endl;
+            cout << "char: Non displayable" << endl;
 
         integer = static_cast<int>(c); 
+        
         cout << "int: " << integer << endl;
 
         number = static_cast<float>(c);    
@@ -74,58 +90,113 @@ void call_cast(std::string num)
     }
     else if(num[0] == '.')// .3 (int) => 0
     {
-        number = std::stof(num.c_str());
+        number = std::stod(num.c_str());
 
         c = static_cast<char>(number); 
 
-        if(isprint(c))
+        if(isprint((int)number))
             cout << "char: " << "'" << c << "'" << endl;
         else
-            cout << "Non displayable" << endl;
+            cout << "char: Non displayable" << endl;
 
         integer = static_cast<int>(number); 
         
         cout << "int: " << integer << endl;
 
-            
+        cout << "float: " << number << ".0f" << endl;
 
-        cout << "float: " << number << "f" << endl;
+        d = static_cast<double>(number);    
 
-        d = static_cast<double>(integer);    
-
-        cout << "double: " << number  << endl;
+        cout << "double: " << d  << endl;
 
     }
     else
-    {
-        integer = atoi(num.c_str());
-        // number = std::stof(num.c_str());
+    { 
+        int t = 0;
+        int i = 0;
+        while (num[i])
+        {
+            if(num[i] == '.')
+                t = 1;
+            i++;
+        }
+        
+        if(t)
+        {
+            
+            number = std::stod(num.c_str());
+              
+            c = static_cast<char>(number); 
 
-        c = static_cast<char>(integer); 
+            if(isprint((int)number))
+                cout << "char: " << "'" << c << "'" << endl;
+            else
+                cout << "char: Non displayable" << endl;
 
-        if(isprint(c))
-            cout << "char: " << "'" << c << "'" << endl;
+            integer = static_cast<int>(number); 
+            
+            
+            if(integer <= INT_MIN)
+                cout << "int: -inf" << endl;
+            else if(integer >= INT_MAX)
+                cout << "int: +inf" << endl;
+            else
+                cout << "int: " << integer << endl;
+
+            if(number <= std::numeric_limits<float>::min())
+                cout <<  "float: -inff" << endl;
+            else if(number >= std::numeric_limits<float>::max())
+                cout << "float: +inff" << endl;
+            else
+                cout << "float: " << number << ".0f" << endl;
+ 
+            d = static_cast<double>(number);    
+
+            if(d <= std::numeric_limits<double>::min())
+                cout <<  "double: -inff" << endl;
+            else if(d >= std::numeric_limits<double>::max())
+                cout << "double: +inff" << endl;
+            else
+                cout << "double: " << d << endl;
+        }
         else
-            cout << "Non displayable" << endl;
+        {
+            integer = ft_atoi(num.c_str());
+            
+            c = static_cast<char>(integer); 
+             
+            if(isprint(integer))
+                cout << "char: " << "'" << c << "'" << endl;
+            else
+                cout << "char: Non displayable" << endl;
+            if(integer <= INT_MIN)
+                cout <<  " int: -inf" << endl;
+            else if(integer >= INT_MAX)
+                cout << "int: +inf" << endl;
+            else
+                cout << "int: " << integer << endl;
 
+            number = static_cast<float>(integer);
+            if(number <= std::numeric_limits<float>::min())
+                cout <<  "float: -inff" << endl;
+            else if(number >= std::numeric_limits<float>::max())
+                cout << "float: +inff" << endl;
+            else
+                cout << "float: " << number << ".0f" << endl;
+            
+            d = static_cast<double>(integer);    
 
-        cout << "int: " << integer << endl;
-
-        number = static_cast<float>(integer);    
-
-        cout << "float: " << number << ".0f" << endl;
-
-        d = static_cast<double>(integer);    
-
-        if(d > std::numeric_limits<double>::max())
-            cout << "EEEEEE\n";
-        cout << "double: " << number << ".0" << endl;
+            if(d <= std::numeric_limits<double>::min())
+                cout <<  "double: -inff" << endl;
+            else if(d >= std::numeric_limits<double>::max())
+                cout << "double: +inff" << endl;
+            else
+                cout << "double: " << d << ".0" << endl;
+        }
 
     }
 
-
-
-
+ 
 }
 
 
@@ -143,6 +214,7 @@ int main(int ac, char *argv[])
 {
     // >= 0 && <= 15 NON PRINTABLE CHARACTERS
 
+       
     if(ac == 2)
     {
         std::string num;
@@ -160,19 +232,20 @@ int main(int ac, char *argv[])
         {
             if(!isdigit(num[i]) &&  num[i] != 'f' && num[i] != '.')
                 return (return_error(),0);
-             
             i++;
         }
         if(is_valid(num))
             call_cast(num);
         else
             return (return_error(),0);
-      
-           
+
     }
     else
         cout << "shoude pass one arg"<< endl;
-   
+    
+
+    //    << std::numeric_limits<float>::min() << " / "
+    //    << std::numeric_limits<float>::max() << '\n';
 }
 
 //  if .2 => 0.2

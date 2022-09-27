@@ -2,6 +2,8 @@
 #define CAST_H
 
 
+
+
 #include <iostream>
 #include <string>
 #include <iomanip>
@@ -13,21 +15,8 @@ using std::cout;
 using std::endl;
 using std::string;
 
-class cast
-{
-    private:
-        
-    public:
-        cast(/* args */);
-        ~cast();
-};
 
-
-
-
-
-
-
+ 
 
 
 
