@@ -130,26 +130,29 @@ int Contact::set_contact()
 
 void Contact::print_contacts(int index)
 {
-    if(firstName.length() > 10)
+    std::string first_Name = firstName;
+    std::string last_Name = lastName;
+    std::string nic_kname = nickname;
+    if(first_Name.length() > 10)
     {
-        firstName.resize(9);
-        firstName.append(".");
+        first_Name.resize(9);
+        first_Name.append(".");
     }
-    if(lastName.length() > 10)
+    if(last_Name.length() > 10)
     {
-        lastName.resize(9);
-        lastName.append(".");
+        last_Name.resize(9);
+        last_Name.append(".");
     }
-    if(nickname.length() > 10)
+    if(nic_kname.length() > 10)
     {
-        nickname.resize(9);
-        nickname.append(".");
+        nic_kname.resize(9);
+        nic_kname.append(".");
     }
     
     std::cout << std::setw(10) <<  index + 1 << "|";
-    std::cout  << std::setw(10) << firstName << "|";
-    std::cout << std::setw(10) << lastName << "|";
-    std::cout << std::setw(10) << nickname << std::endl; 
+    std::cout  << std::setw(10) << first_Name << "|";
+    std::cout << std::setw(10) << last_Name << "|";
+    std::cout << std::setw(10) << nic_kname << std::endl; 
 } 
 void Contact::print_contact( )
 {
