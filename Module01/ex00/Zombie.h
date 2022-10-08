@@ -2,26 +2,25 @@
 #define ZOMBIE_H
 
 #include <iostream>
-#include <string>
 #include <cstring>
-#include <cctype>
-
- 
 
 
 class Zombie
 {
-    std::string name;
+    private:
+        std::string name;
 
     public:
+        Zombie();
+        
         void announce( void );
         void setName(std::string name);
-        Zombie();
+        
         ~Zombie();
 };
 
+Zombie* newZombie( std::string name );
+void randomChump( std::string name );
 
-Zombie*  newZombie( std::string name );
-void  randomChump( std::string name );
 
 #endif

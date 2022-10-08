@@ -1,22 +1,33 @@
-
-#include "Weapon.h"
-// #include "HumanA.h"
+#include "HumanA.h"
 #include "HumanB.h"
+#include "Weapon.h"
 
 
-HumanB::HumanB(std::string n):name(n)
+
+
+
+
+
+HumanB::HumanB()
 {
 }
 
-void HumanB::setWeapon(Weapon &obj) 
+HumanB::HumanB(std::string str)
 {
-    wB = &obj;
+    name = str;
 }
- 
+
+
+void HumanB::setWeapon(Weapon &weapon)
+{
+    w = &weapon;
+}
+
 void HumanB::attack()
-{ 
-    std::cout << name << " attacks with their " << wB->getType() << std::endl;
+{                                                           
+    std::cout << name << " attacks with their " << w->getType() << std::endl; 
 }
 
-
-
+// HumanB::~HumanB()
+// {
+// }

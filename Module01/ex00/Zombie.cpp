@@ -5,18 +5,19 @@ Zombie::Zombie()
 {
 }
 
-Zombie::~Zombie()
-{ 
-    std::cout << name << " did" << std::endl;
+
+void Zombie::announce( void )
+{
+    std::cout << name << ":  BraiiiiiiinnnzzzZ..." << std::endl;
 }
 
-void Zombie::setName( std::string n )
+void Zombie::setName(std::string n)
 {
     name = n;
 }
 
-void Zombie::announce( void )
-{
-    std::cout << name << ": BraiiiiiiinnnzzzZ..." << std::endl;
-}
 
+Zombie::~Zombie()
+{
+    std::cout << "delete .." << std::endl;
+}

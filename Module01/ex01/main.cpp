@@ -1,18 +1,14 @@
 #include "Zombie.h"
- 
 
 
 int main()
-{ 
-    int i;
+{
+    Zombie *hordeOfZombies;
 
-    Zombie *zombie_horde;
-   
-    zombie_horde = zombieHorde(5,"zombies");
+    hordeOfZombies = zombieHorde(5,"zombie");
 
-    i = 0;
-    while (i < 5)
-        zombie_horde[i++].announce();
+    for(int i =0;i < 5; i++)
+        hordeOfZombies[i].announce();
 
-    delete[] zombie_horde; 
+    delete[] hordeOfZombies;
 }

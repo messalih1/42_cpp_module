@@ -1,27 +1,22 @@
 NAME = zombie
 
-
 CC = c++
 
 C_FLAGS = -Wall -Wextra -Werror -std=c++98
 
-C_FILES = main.cpp zombieHorde.cpp Zombie.cpp
+C_FILES = main.cpp Zombie.cpp  zombieHorde.cpp
 
-O_FILES = $(C_FILES:.cpp=.o)
+O_FILES = main.o Zombie.o  zombieHorde.o
 
-
-%.o: %.cpp 
-	@${CC} ${C_FLAGS} -c $< -o $@
-
-all: ${NAME}
+all : $(NAME)
 
 ${NAME}: ${O_FILES} 
-	@${CC} ${C_FLAGS} ${O_FILES} -o ${NAME}
-
+	@${CC} ${C_FLAGS} ${O_FILES}  -o $(NAME)
+	
 clean:
 	@rm -f ${O_FILES}
 
 fclean: clean
 	@rm -f ${NAME}
 
-re: fclean all
+re: fclean all 
