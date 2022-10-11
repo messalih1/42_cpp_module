@@ -6,16 +6,25 @@
 class ScavTrap : public ClapTrap
 {
     private:
-         
+        std::string name;// because still prive in inheritance
+        int hitPoints;
+        int energyPoints;
+        int attackDamage;
+        
     public:
-        void attack(const std::string& target);
         ScavTrap();
-        ScavTrap(const ScavTrap &obj);
+        ScavTrap(std::string name);
+        ScavTrap(const ScavTrap & obj);
+        ScavTrap & operator = (const ScavTrap &obj);
         void guardGate();
-        ScavTrap(string start);
+        void attack(const std::string& target);// you must redifne the func to reimplement in derived 
         ~ScavTrap();
 };
- 
+
+
+
+
+
 
 
 

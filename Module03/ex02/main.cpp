@@ -1,18 +1,23 @@
+#include "ScavTrap.h"
 #include "ClapTrap.h"
 
-#include "ScavTrap.h"
-#include "FragTrap.h"
 
- 
- 
+
 int main()
 {
+    ClapTrap clap;
+    ScavTrap scav;
     
-    FragTrap f("name");
-    
- 
+    scav.attack("target");
+    scav.attack("target");
+    scav.attack("target");
+    scav.attack("target");
+    scav.attack("target");
+    scav.attack("target");
+    scav.attack("target");
+    scav.attack("target");
+    scav.attack("target");
+    scav.attack("target");
+    scav.attack("target");
 
-    
-
- 
 }

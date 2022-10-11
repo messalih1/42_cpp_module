@@ -1,12 +1,29 @@
 #include "ClapTrap.h"
-#include "ScavTrap.h"
 
- 
- 
+
+
 int main()
 {
+    ClapTrap clap;
+    clap.attack("abduh");
+    clap.attack("abduh");
+    clap.attack("abduh");
+    clap.attack("abduh");
+    clap.attack("abduh");
+    clap.attack("abduh");
+    clap.attack("abduh");
+    clap.attack("abduh");
+    clap.attack("abduh");
+    clap.attack("abduh");
+ 
+    clap.beRepaired(50);
 
-    ClapTrap c;
-    c.attack("targert 1");
-    c.beRepaired(5);
+
+    ClapTrap c("test");
+    c.attack("target");
+    c.attack("target");
+    c.attack("target");
+    c.beRepaired(50);
+
+
 }
