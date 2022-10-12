@@ -1,25 +1,20 @@
 #ifndef DOG_H
 #define DOG_H
 
-#include "Brain.h"
+#include "Animal.h"
+ 
 
-class Dog : public Animal
+class Dog: public Animal
 {
     private:
-        Brain *b_dog;
         
     public:
-        string getType()const;
-        void makeSound() const;
         Dog();
+        Dog(const Dog & obj);
+        Dog & operator = (const Dog & obj);
+        void makeSound()const;
         ~Dog();
 };
-
-
-
-
-
-
 
 
 

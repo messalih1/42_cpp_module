@@ -1,29 +1,27 @@
-#ifndef ANIMAL_H
-#define ANIMAL_H
-
+#ifndef ANILMAL_H
+#define ANILMAL_H
 
 
 #include <iostream>
-
+#include <string>
 #include <cstring>
-
-using std::cout;
-using std::endl;
-using std::string;
-
-
 
 class Animal
 {
     protected:
-        string type;
-
+        std::string type;
+        
     public:
-        virtual  string  getType()const;
-        virtual void makeSound()const;
         Animal();
-        ~Animal();
+        Animal(const Animal & obj);
+        Animal & operator = (const Animal & obj);
+        std::string getType() const;
+        virtual void makeSound()const;
+        virtual ~Animal();
 };
+
+
+
 
 
 

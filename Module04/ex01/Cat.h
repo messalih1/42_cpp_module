@@ -1,28 +1,20 @@
 #ifndef CAT_H
 #define CAT_H
-#include "Brain.h"
 
+#include "Animal.h"
 
+ 
 class Cat : public Animal
 {
     private:
-        Brain *b_cat;
-
-    public:
         
-        string getType()const;
-        void makeSound() const;
-        Cat(/* args */);
+    public:
+        Cat();
+        Cat(const Cat & obj);
+        Cat & operator = (const Cat & obj);
+        void makeSound()const;
         ~Cat();
 };
-
-
-
-
-
-
-
-
 
 
 

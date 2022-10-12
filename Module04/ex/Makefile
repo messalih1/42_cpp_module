@@ -1,18 +1,19 @@
 NAME = program
 
-C_FILES = main.cpp Animal.cpp Cat.cpp Dog.cpp  
+C_FILES = main.cpp base.cpp direved.cpp
+
 O_FILES = $(C_FILES:.cpp=.o)
 
 CC = c++
 
 all : $(NAME)
 
-%.o: %.cpp  Animal.h Cat.h Dog.h  
+%.o: %.cpp  base.h direved.h
 	@${CC}  -c $< -o $@ 
 
 all: ${NAME}
 
-${NAME}: ${O_FILES} Animal.h Cat.h Dog.h  
+${NAME}: ${O_FILES} base.h direved.h
 	@${CC}  ${O_FILES} -o $(NAME)
 
 clean:

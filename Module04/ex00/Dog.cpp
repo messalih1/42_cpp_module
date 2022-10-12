@@ -31,5 +31,5 @@ void Dog::makeSound()const
 
 Dog::~Dog()
 {
-    std::cout << "base class(Dog): Destructor." << std::endl;
+    std::cout << "class(Dog): Destructor." << std::endl;
 }

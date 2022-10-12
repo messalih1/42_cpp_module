@@ -33,5 +33,5 @@ void Cat::makeSound()const
 
 Cat::~Cat()
 {
-    std::cout << "base class(Cat): Destructor." << std::endl;
+    std::cout << "class(Cat): Destructor." << std::endl;
 }

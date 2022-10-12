@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "new": "cpp",
+        "cstring": "cpp",
+        "string": "cpp"
+    }
+}
