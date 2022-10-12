@@ -17,6 +17,7 @@ Animal::Animal(const Animal & obj)
 
 Animal & Animal::operator=(const Animal & obj)
 {
+    std::cout << "WWW\n";
     if(this != &obj)
         type = obj.type;
     return *this;
@@ -33,14 +34,6 @@ void Animal::makeSound()const
 {
     std::cout << "ahoo.." << std::endl;
 } 
-
-
-
-
-
-
-
-
 
 
 

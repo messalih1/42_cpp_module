@@ -8,19 +8,29 @@
 Cat::Cat()
 {
     type = "Cat";
-    std::cout << "base class(Cat): Default constructor called." << std::endl;
+    std::cout << "class(Cat): Default constructor called." << std::endl;
+    brain = new  Brain();
+
 }
 
 Cat::Cat(const Cat & obj)
 {
     type = obj.type;
-    std::cout << "base class(Cat): copy constructor called." << std::endl;
+    brain = new  Brain();
+    *brain = *obj.brain;
+    std::cout << "class(Cat): copy constructor called." << std::endl;
 }
 
 Cat & Cat::operator=(const Cat & obj)
 {
+    std::cout << "class(Cat): copy assignment constructor called." << std::endl;
+
+    // brain = new  Brain();
     if(this != &obj)
+    {
         type = obj.type;
+        *brain = *obj.brain;
+    }
     return *this;
 }
 
@@ -34,4 +44,5 @@ void Cat::makeSound()const
 Cat::~Cat()
 {
     std::cout << "class(Cat): Destructor." << std::endl;
+    // delete brain;
 }

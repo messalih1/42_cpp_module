@@ -6,19 +6,33 @@ Dog::Dog()
 {
     type = "Dog";
     
-    std::cout << "base class(Dog): Default constructor called." << std::endl;
+    std::cout << "class(Dog): Default constructor called." << std::endl;
+
+    brain = new  Brain();
+    
 }
 
 Dog::Dog(const Dog & obj)
 {
     type = obj.type;
-    std::cout << "base class(Dog): copy constructor called." << std::endl;
+    brain = new  Brain();
+
+    *brain = *obj.brain;
+
+    std::cout << "class(Dog): copy constructor called." << std::endl;
 }
 
 Dog & Dog::operator=(const Dog & obj)
 {
+    // brain = new  Brain();
+    std::cout << "class(Dog): copy assignment constructor called." << std::endl;
+
     if(this != &obj)
+    {
+        *brain = *obj.brain;
+
         type = obj.type;
+    }
     return *this;
 }
 
@@ -32,4 +46,5 @@ void Dog::makeSound()const
 Dog::~Dog()
 {
     std::cout << "class(Dog): Destructor." << std::endl;
+    // delete brain;
 }
