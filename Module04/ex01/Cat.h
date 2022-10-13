@@ -7,7 +7,7 @@
 class Cat : public Animal
 {
     private:
-        Brain *brain;
+		Brain *brain;// will call default constructor
     public:
         Cat();
         Cat(const Cat & obj);

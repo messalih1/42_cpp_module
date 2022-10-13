@@ -22,11 +22,4 @@ class Animal
 
 
 
-
-
-
-
-
-
-
 #endif

@@ -3,11 +3,12 @@
 
 #include "Animal.h"
 #include "Brain.h"
+ 
 
 class Dog: public Animal
 {
     private:
-        Brain *brain;
+        Brain *brain;// will call default constructor
     public:
         Dog();
         Dog(const Dog & obj);

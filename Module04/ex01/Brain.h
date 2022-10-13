@@ -3,17 +3,18 @@
 
 #include "Animal.h"
 
-class Brain 
+
+class Brain
 {
-private:
-    std::string  ideas[100];
+    private:
+        std::string  ideas[100];
     public:
-        Brain(/* args */);
+        Brain();
+        Brain(const Brain & obj);
+        Brain & operator = (const Brain & obj);
+		void settter(std::string ideas[], int size);
         ~Brain();
 };
-
-
-
 
 
 

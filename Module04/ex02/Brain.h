@@ -1,20 +1,20 @@
 #ifndef BRAIN_H
 #define BRAIN_H
 
-
+#include "Animal.h"
 
 
 class Brain
 {
     private:
-        string ideas[100];
+        std::string  ideas[100];
     public:
-        Brain(/* args */);
+        Brain();
+        Brain(const Brain & obj);
+        Brain & operator = (const Brain & obj);
+		void settter(std::string ideas[], int size);
         ~Brain();
 };
-
-
-
 
 
 

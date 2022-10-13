@@ -1,28 +1,21 @@
 #ifndef CAT_H
 #define CAT_H
+
+#include "Animal.h"
 #include "Brain.h"
-
-
+ 
 class Cat : public Animal
 {
     private:
-        Brain *b_cat;
-
+		Brain *brain;// will call default constructor
     public:
-        
-        string getType()const;
-        void makeSound() const;
-        Cat(/* args */);
-        ~Cat();
+        Cat();
+        Cat(const Cat & obj);
+        Cat & operator = (const Cat & obj);
+        void makeSound()const;
+		std::string getType() const;
+		~Cat();
 };
-
-
-
-
-
-
-
-
 
 
 

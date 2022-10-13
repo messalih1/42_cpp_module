@@ -2,28 +2,48 @@
 #include "Dog.h"
 
 
-
-
 Dog::Dog()
 {
-    cout << "from dog default constructor" << endl;
+    type = "Dog";
+    brain = new Brain();
+    std::cout << "class(Dog): Default constructor called." << std::endl;
+}
 
-    Brain *b = new Brain();
-    type = "dog";
+Dog::Dog(const Dog & obj)
+{
+    type = obj.type;
+    brain = new Brain();
+	*brain = *obj.brain;
+    std::cout << "class(Dog): copy constructor called." << std::endl;
+}
+
+Dog & Dog::operator=(const Dog & obj)
+{
+    std::cout << "class(Dog): copy assignement constructor called." << std::endl;
+
+    if(this != &obj)
+	{
+    	brain = new Brain();
+		*brain = *obj.brain;
+        type = obj.type;
+	}
+    return *this;
+}
+
+
+void Dog::makeSound()const
+{
+    std::cout << "how how .." << std::endl;
+} 
+
+std::string Dog::getType()const
+{
+	std::cout << "SSSSS\n";
+	return "SSs";
 }
 
 Dog::~Dog()
 {
-}
-
-string  Dog::getType() const
-{
-   return type;
-}
-
-
-
-void  Dog::makeSound()const
-{
-   cout << "howhow" << endl;
+	delete brain;
+    std::cout << "class(Dog): Destructor." << std::endl;
 }

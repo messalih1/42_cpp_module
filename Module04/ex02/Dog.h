@@ -1,25 +1,22 @@
 #ifndef DOG_H
 #define DOG_H
 
+#include "Animal.h"
 #include "Brain.h"
+ 
 
-class Dog : public Animal
+class Dog: public Animal
 {
     private:
-        Brain *b_dog;
-        
+        Brain *brain;// will call default constructor
     public:
-        string getType()const;
-        void makeSound() const;
         Dog();
+        Dog(const Dog & obj);
+        Dog & operator = (const Dog & obj);
+        void makeSound()const;
+		std::string getType() const;// you must to redeclare the pure function
         ~Dog();
 };
-
-
-
-
-
-
 
 
 
