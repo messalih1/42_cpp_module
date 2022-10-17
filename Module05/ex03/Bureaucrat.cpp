@@ -1,54 +1,69 @@
-#include "Bureaucrat.h"
+#include "Bureaucrat.hpp"
+#include "Form.hpp"
 
-#include "Form.h"
 
-
-Bureaucrat::Bureaucrat():name("name"),grade(5)
+Bureaucrat::Bureaucrat():name("Default name"),grade(1)
 {
     if(grade < 1)
-        throw GradeTooHighException();// call class member in my class
+        throw GradeTooHighException();
     else if(grade > 150)
-        throw GradeTooLowException();   
-}
- 
-
-
-Bureaucrat::~Bureaucrat()
-{
+        throw GradeTooLowException();
 }
 
 
-string Bureaucrat::getName()
-{
-    return name;
-}
-
-
- 
 int Bureaucrat::getGrade()const
 {
     return grade;
 }
 
+std::string Bureaucrat::getName()
+{
+    return name;
+}
 
-// void Bureaucrat::signForm(Form &f)
-// {
-//     if(f.get_is_signed() == true)
-//         cout << this->getName() << " signed " << f.getName();
-//     else
-//         cout << this->getName() <<  " couldn't sign " << f.getName() << " because " <<  f.get_is_signed() << endl;
-// }
+void Bureaucrat::increment()
+{
+    grade--;
+    if(grade < 1)
+        throw GradeTooHighException();
+}
 
-// void Bureaucrat::increment()
-// {
-//     grade--;
-//     if(grade < 1)
-//         throw GradeTooHighException();
-// }
+void Bureaucrat::decrement()
+{
+    grade++;
+    if(grade > 150)
+        throw GradeTooLowException();
+}
 
-// void Bureaucrat::decrement()
+std::ostream & operator << (std::ostream & COUT, Bureaucrat & b)
+{
+    COUT << b.getName() << ", bureaucrat grade " <<  b.getGrade();
+    return COUT;
+}
+ 
+
+void Bureaucrat::executeForm(Form const & form)
+{
+    if(!form.isSigned())
+    {
+        std::cout << "it not signed...." << std::endl;
+        return ;
+    }
+    if(getGrade() > form.getGrade_execute())
+        throw GradeTooLowException();
+    form.execute(*this);
+    std::cout << name << " Executed " << form.getName() << std::endl;
+}
+
+
+void Bureaucrat::signForm(Form &form)
+{
+    if(form.isSigned())
+        std::cout <<  getName() << " signed " << form.getName() << std::endl;
+    else
+        std::cout << getName() << " couldn't sign " << form.getName() << " because " << form.isSigned() << std::endl;
+}
+
+// Bureaucrat::~Bureaucrat()
 // {
-//     grade++;
-//     if(grade > 150)
-//         throw GradeTooLowException(); 
 // }

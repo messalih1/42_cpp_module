@@ -1,53 +1,56 @@
-#include "Bureaucrat.h"
-#include "Form.h"
-#include "ShrubberyCreationForm.h"
-#include "RobotomyRequestForm.h"
-#include "PresidentialPardonForm.h"
+#include "RobotomyRequestForm.hpp"
 
 
-RobotomyRequestForm::RobotomyRequestForm(string target):sign(72),exec(45)
+
+RobotomyRequestForm::RobotomyRequestForm():sign(72),exec(45)
+{
+}
+
+RobotomyRequestForm::RobotomyRequestForm(std::string target):sign(72),exec(45)
 {
     this->target = target;
+}
+
+
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm & obj)
+{
+    sign = obj.sign;
+    exec = obj.exec;
+}
+
+RobotomyRequestForm & RobotomyRequestForm::operator=(const RobotomyRequestForm & obj)
+{
+    if(this != &obj)
+    {
+        sign = obj.sign;
+        exec = obj.exec;
+    }
+    return *this;
+}
+
+
+void RobotomyRequestForm::execute(Bureaucrat const & executor) const
+{
+    (void)executor;
+
+    std::cout << "ZZZZZZZZZZZ" << std::endl;
+
+    srand(time(NULL));
+   
+    int r = rand() % 2;
+
+    if(r==0)
+        std::cout << target << " has been robotomized successfully 50% of the time" << std::endl;
+    else
+        std::cout << target << "  the robotomy failed." << std::endl;
+}
+
+
 
     
-}
 
 RobotomyRequestForm::~RobotomyRequestForm()
 {
 }
 
-
-
-string RobotomyRequestForm::getName() const
-{
-    return "string from RobotomyRequestForm";
-}
-
-
-bool RobotomyRequestForm::get_is_signed()const
-{
-    return true;
-}
-
-int RobotomyRequestForm::get_grade_sign() const
-{
-   return 1;
-}
-
-
-
-void RobotomyRequestForm::execute(Bureaucrat const & executor) const
-{
-    if(executor.getGrade() <= this->get_grade_sign())
-    {
-
-        cout << "YES hight" << endl;
-    }
-    else
-        throw GradeTooLowException();
-    // if(this->is_signed)
-    //     cout << "is signed" << endl;
-    // else
-    //     throw NotSigned();
-}
 

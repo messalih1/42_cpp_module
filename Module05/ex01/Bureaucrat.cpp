@@ -41,9 +41,9 @@ std::ostream & operator << (std::ostream & COUT, Bureaucrat & b)
     return COUT;
 }
 
-void Bureaucrat::signForm()
+void Bureaucrat::signForm(Form  &form)
 {
-    Form form;
+    
     
     if(form.isSigned())
         std::cout <<  getName() << " signed " << form.getName() << std::endl;

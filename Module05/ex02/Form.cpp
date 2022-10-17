@@ -1,57 +1,63 @@
-#include "Bureaucrat.h"
-#include "Form.h"
+#include "Form.hpp"
 
 
 
-
-
-
-Form::Form():name("Form"),is_signed(false),grade_sign(6),grade_excec(0)
+Form::Form():name("unknow"),sign(true),grade(1),grade_execute(1)
 {
-    if(grade_sign > 150)
+    if(grade < 1)
         throw GradeTooHighException();
-    else if(grade_sign < 0)
+    else if(grade > 150)
         throw GradeTooLowException();
-    if(grade_excec > 150)
+    if(grade_execute < 1)
         throw GradeTooHighException();
-    else if(grade_excec < 0)
-        throw GradeTooLowException();
-
+    else if(grade_execute > 150)
+        throw GradeTooLowException();   
 }
 
-// bool Form::beSigned(Bureaucrat &b)
-// {
-//     if(b.getGrade() <= this->grade_sign)
-//     {
-//         is_signed = true;
-//         return is_signed;
-//     }
-//     else
-//         throw GradeTooLowException();
-     
-// }
+ 
+int Form::getGrade_execute()const
+{
+    return grade_execute;
+}
 
-// bool Form::get_is_signed()
-// {
-//     return is_signed;
-// }
+int Form::getGrade_sign()const
+{
+    return grade;
+}
 
-// string Form::getName() const
-// {
-//     return this->name;
-// }
-// int Form::get_grade_sign() const
-// {
-//     return this->grade_sign;
-// }
-// int Form::get_grade_excec() const
-// {
-//     return this->grade_excec;
-// }
+bool Form::isSigned()const
+{
+    return true;
+}
 
+std::string Form::getName()const
+{
+    return name;
+}
+
+
+void Form::beSigned(Bureaucrat & b)
+{
+    if(b.getGrade() <= grade)
+        sign = true;
+    else
+        throw GradeTooLowException();
+}
+
+
+std::ostream & operator << (std::ostream & COUT, Form & f)
+{
+    COUT << "name: " << f.getName() << std::endl;
+    COUT <<  "grade sign: " << f.getGrade_sign() << std::endl;
+    COUT << "grade execute: "  << f.getGrade_execute() << std::endl;
+    if(f.isSigned())
+        COUT << "is signed: "  << f.isSigned() << std::endl;
+    else
+        COUT << "not signed: "  << f.isSigned() << std::endl;
+
+    return COUT;
+}
 
 Form::~Form()
 {
 }
-
-

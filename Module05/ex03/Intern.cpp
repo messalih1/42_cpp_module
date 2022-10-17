@@ -1,47 +1,31 @@
-#include "Intern.h"
-#include "Form.h"
-#include "ShrubberyCreationForm.h"
-#include "RobotomyRequestForm.h"
-#include "PresidentialPardonForm.h"
+#include "Intern.hpp"
+
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 
-Intern::Intern()
+
+Intern::Intern(/* args */)
 {
-    
-    
 }
 
-
-Form * Intern::makeForm(string name , string target)
+Form * Intern::makeForm(std::string name, std::string target)
 {
-    int j;
-    string n;
+      
+     std::string names[] = {"ShrubberyCreationForm","RobotomyRequestForm","PresidentialPardonForm"};
 
-    string arr[3] = {"ShrubberyCreationForm","RobotomyRequestForm","PresidentialPardonForm"};
+     Form *f[3] = {new ShrubberyCreationForm(target),new RobotomyRequestForm(target),new PresidentialPardonForm(target)};
+     int i = 0;
+     while (name != names[i] && i < 3)
+          i++;
+          
 
-    // forms[0] is an instance from ShrubberyCreationForm
-    forms[0] = new ShrubberyCreationForm("shrubbry");
-    forms[1] = new RobotomyRequestForm("Robotomy");
-    forms[2] = new PresidentialPardonForm("Presidential");
-   
-
-    
-    j = 0;
-    while (arr[j] != name && j < 3)
-        j++;
-    arr[j] == name ? n = "Intern creates " + arr[j]  : n = "intern not exist";
-    cout << n << endl;
-    return *forms;
-}   
-
-
-
-
+     (i == 3) ?  std::cout << "Intern not creates " << std::endl : std::cout << "Intern  creates " << f[i]->getName() << std::endl;
+     return (i == 3) ? NULL : f[i];
+}
 
 
 Intern::~Intern()
 {
-    delete forms[0];
-    delete forms[1];
-    delete forms[2];
 }

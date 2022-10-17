@@ -5,9 +5,10 @@
 #include <exception>
 #include <string>
 #include <cstring>
-
+#include <cstdlib>
 #include "Form.hpp"
 
+class Form;
 class Bureaucrat
 {
     private:
@@ -15,10 +16,11 @@ class Bureaucrat
         int grade;
     public:
         std::string getName();
-        int getGrade();
+        int getGrade()const;
         void increment();
         void decrement();
-        void signForm(Form &form);
+        void signForm(Form & form);
+        void executeForm(Form const & form);
         Bureaucrat();
         // ~Bureaucrat();
     class GradeTooHighException : public std::exception
@@ -44,6 +46,7 @@ class Bureaucrat
 
 std::ostream  & operator << (std::ostream &COUT, Bureaucrat & b);
 
+std::ostream & operator << (std::ostream & COUT, Bureaucrat & b);
 
 
 

@@ -1,45 +1,40 @@
-#include "Bureaucrat.h"
-#include "Form.h"
-#include "ShrubberyCreationForm.h"
-#include "RobotomyRequestForm.h"
-#include "PresidentialPardonForm.h"
+#include "PresidentialPardonForm.hpp"
 
 
-PresidentialPardonForm::PresidentialPardonForm(string target):sign(25),exec(5)
-{
-    cout << target << " has been pardoned by Zaphod Beeblebrox" << endl;
-}
 
-PresidentialPardonForm::~PresidentialPardonForm()
+PresidentialPardonForm::PresidentialPardonForm():sign(25),exec(5)
 {
 }
 
-
-
-
-string PresidentialPardonForm::getName() const
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm & obj)
 {
-    return "string from PresidentialPardonForm";
+    sign = obj.sign;
+    exec = obj.exec;
 }
 
-bool PresidentialPardonForm::get_is_signed()const
+PresidentialPardonForm & PresidentialPardonForm::operator=(const PresidentialPardonForm & obj)
 {
-    return true;
+    if(this != &obj)
+    {   
+        sign = obj.sign;
+        exec = obj.exec;
+    }
+    return *this;
 }
 
-int PresidentialPardonForm::get_grade_sign() const
+
+PresidentialPardonForm::PresidentialPardonForm(std::string target)
 {
-    return 1;
+    this->target = target;
 }
 
 void PresidentialPardonForm::execute(Bureaucrat const & executor) const
 {
-    if(executor.getGrade() <= this->get_grade_sign())
-        cout << "YES hight" << endl;
-    else
-        throw GradeTooLowException();
-    if(get_grade_sign())
-        cout << "is signed" << endl;
-    else
-        throw NotSigned();
+    (void)executor;
+    std::cout <<  target << " has been pardoned by Zaphod Beeblebrox " << std::endl;
+}
+
+
+PresidentialPardonForm::~PresidentialPardonForm()
+{
 }

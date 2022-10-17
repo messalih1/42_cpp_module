@@ -1,62 +1,54 @@
-#include "Bureaucrat.h"
-#include "Form.h"
-#include "ShrubberyCreationForm.h"
-#include "RobotomyRequestForm.h"
-#include "PresidentialPardonForm.h"
+#include "ShrubberyCreationForm.hpp"
+#include<cstring>
 
-
-
-ShrubberyCreationForm::ShrubberyCreationForm(string target):sign(145),exec(137)
+ShrubberyCreationForm::ShrubberyCreationForm():sign(145),exec(137)
 {
+}
+
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target):sign(145),exec(137)
+{
+    target.append("_shrubbery");
+
     this->target = target;
 }
 
-ShrubberyCreationForm::~ShrubberyCreationForm()
+
+
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm & obj)
 {
+    sign = obj.sign;
+    exec = obj.exec;
 }
 
-
-
-
-string ShrubberyCreationForm::getName() const
+ShrubberyCreationForm & ShrubberyCreationForm::operator=(const ShrubberyCreationForm & obj)
 {
-    return "string from ShrubberyCreationForm";
+    if(this != &obj)
+    {
+        sign = obj.sign;
+        exec = obj.exec;
+    }
+    return *this;
 }
-
-bool ShrubberyCreationForm::get_is_signed()const
-{
-    return true;
-}
-
-int ShrubberyCreationForm::get_grade_sign() const
-{
-    return 1;
-}
-
-// bool Form::beSigned(Bureaucrat &b)
-// {
-//     if(b.getGrade() <= this->grade_sign)
-//     {
-//         is_signed = true;
-//         return is_signed;
-//     }
-//     else
-//         throw GradeTooLowException();
-     
-// }
 
 void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
-    if(executor.getGrade() <= sign)
-        cout << "YES hight" << endl;
-    else
-        throw GradeTooLowException();
-    if(get_grade_sign())
-        cout << "is signed" << endl;
-    else
-        throw NotSigned();
-    
+    (void)executor;
+
+    std::ofstream my_file(target.c_str());//Creates and writes to files
+    my_file << "          v .   ._, |_  .," << std::endl;
+    my_file << "       `-._\\/  .  \\ /    |/_" << std::endl;
+    my_file << "      \\  _\\, y | \\//" << std::endl;
+    my_file << "     _\\_.___\\, \\/ -.\\||" << std::endl;
+    my_file << "      `7-,--.`._||  / / ," << std::endl;
+//            /'     `-. `./ / |/_.'
+//                      |    |//
+//                      |_    /
+//                      |-   |
+//                      |   =|
+//                      |    |
+// --------------------/ ,  . \--------._
+
 }
-
-
-
+ShrubberyCreationForm::~ShrubberyCreationForm()
+{
+}

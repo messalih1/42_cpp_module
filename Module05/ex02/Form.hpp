@@ -14,11 +14,11 @@ class Form
     public:
         Form();
         std::string getName()const;
-        virtual void func() = 0;
         int getGrade_sign()const;
         int getGrade_execute()const;
         bool isSigned()const;
         void beSigned(Bureaucrat & b); 
+        virtual void execute(Bureaucrat const & executor) const = 0;
         ~Form();
 
     class GradeTooHighException : public std::exception
