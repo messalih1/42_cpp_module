@@ -1,5 +1,5 @@
-#ifndef FORM_H
-#define FORM_H
+#ifndef FORM_HPP
+#define FORM_HPP
 
 #include "Bureaucrat.hpp"
 
@@ -13,31 +13,36 @@ class Form
         const int grade_execute;
     public:
         Form();
+        Form(const std::string name, int grade, int g);
+        Form(const Form & form);
+        Form & operator = (const Form & form);
         std::string getName()const;
         int getGrade_sign()const;
         int getGrade_execute()const;
         bool isSigned()const;
         void beSigned(Bureaucrat & b); 
         ~Form();
-
     class GradeTooHighException : public std::exception
     {
         public:
-        const char* what() const throw()
-        { 
-            return "Form: Grade Too High Exception"; 
-        }
+            const char* what() const throw()
+            { 
+                return "Form: Grade Too High Exception"; 
+            }
     };
 
     class GradeTooLowException : public std::exception
     {
         public:
-        const char* what() const throw()
-        { 
-            return "Form: Grade Too Low Exception"; 
-        }
+            const char* what() const throw()
+            { 
+                return "Form: Grade Too Low Exception"; 
+            }
     };
+
 };
+
+
 
 
 std::ostream  & operator << (std::ostream &COUT, Form & form);

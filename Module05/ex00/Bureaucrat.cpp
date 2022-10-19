@@ -4,12 +4,40 @@
 
 Bureaucrat::Bureaucrat():name("Default name"),grade(1)
 {
+    std::cout << "default constructor called." << std::endl;
     if(grade < 1)
         throw GradeTooHighException();
     else if(grade > 150)
         throw GradeTooLowException();
 }
 
+Bureaucrat::Bureaucrat(const std::string n, int g):name(n),grade(g)
+{
+    std::cout << "constructor parametarize called." << std::endl;
+    if(grade < 1)
+        throw GradeTooHighException();
+    else if(grade > 150)
+        throw GradeTooLowException();
+}
+
+Bureaucrat::Bureaucrat(const Bureaucrat & obj):name(obj.name)
+{
+    std::cout << "copy constructor called." << std::endl;
+
+    grade = obj.grade;
+}
+
+
+Bureaucrat & Bureaucrat::operator = (const Bureaucrat & obj) 
+{
+    std::cout << "operator assignement called." << std::endl;
+
+    if(this != &obj)
+    {
+        grade = obj.grade;
+    }
+    return *this;
+}
 
 int Bureaucrat::getGrade()
 {
@@ -41,6 +69,17 @@ std::ostream & operator << (std::ostream & COUT, Bureaucrat & b)
     return COUT;
 }
 
-// Bureaucrat::~Bureaucrat()
-// {
-// }
+const char * GradeTooHighException::what () const throw()
+{
+    return "Grade Too High Exception";
+}
+
+const char * GradeTooLowException::what () const throw()
+{
+    return "Grade Too Low Exception";
+}
+
+Bureaucrat::~Bureaucrat()
+{
+    std::cout << "destructor called." << std::endl;
+}

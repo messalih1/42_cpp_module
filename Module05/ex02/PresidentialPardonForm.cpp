@@ -30,8 +30,9 @@ PresidentialPardonForm::PresidentialPardonForm(std::string target)
 
 void PresidentialPardonForm::execute(Bureaucrat const & executor) const
 {
-    (void)executor;
-    std::cout <<  target << " has been pardoned by Zaphod Beeblebrox " << std::endl;
+    if(executor.getGrade() > getGrade_execute())
+        throw GradeTooLowException();
+    std::cout << target << " has been pardoned by Zaphod Beeblebrox " << std::endl;
 }
 
 
