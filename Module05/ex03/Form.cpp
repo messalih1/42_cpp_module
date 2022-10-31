@@ -27,7 +27,7 @@ int Form::getGrade_sign()const
 
 bool Form::isSigned()const
 {
-    return true;
+    return sign;
 }
 
 std::string Form::getName()const
@@ -60,4 +60,5 @@ std::ostream & operator << (std::ostream & COUT, Form & f)
 
 Form::~Form()
 {
+    std::cout << "Form destructor called." << std::endl;
 }

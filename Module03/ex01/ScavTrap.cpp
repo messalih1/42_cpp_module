@@ -2,16 +2,23 @@
 #include "ClapTrap.h"
 
 
-ScavTrap::ScavTrap():ClapTrap(),hitPoints(100),energyPoints(50),attackDamage(20)
+ScavTrap::ScavTrap():ClapTrap()
 {
+    hitPoints = 100;
+    energyPoints = 50;
+    attackDamage = 20;
     std::cout << "from derived constructor" << std::endl;
     name = "unknow";
 }
 
 
-ScavTrap::ScavTrap(std::string name):ClapTrap(name),hitPoints(100),energyPoints(50),attackDamage(20)
+ScavTrap::ScavTrap(std::string name):ClapTrap(name)
 {
     std::cout << "from derived pramterize constructor" << std::endl;
+
+    hitPoints = 100;
+    energyPoints = 50;
+    attackDamage = 20;
     this->name = name;
 }
                                    
@@ -48,8 +55,6 @@ void ScavTrap::attack(const std::string& target)
 		std::cout << "ScavTrap : hit points : " << hitPoints << std::endl;
 		std::cout << "ScavTrap : attackDamage points = " << attackDamage << std::endl;
     }
-    else
-        std::cout << "can't do anything." << std::endl;
 }
 
 void ScavTrap::guardGate()

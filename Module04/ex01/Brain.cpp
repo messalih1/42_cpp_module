@@ -3,32 +3,46 @@
 
 
 
-Brain::Brain()
+Brain::Brain() 
 {
-    std::cout << "class(Brain): Default constructor called." << std::endl;
+    ideas = new std::string[100];   
+    
+    for (size_t i = 0; i < 100; i++)
+        ideas[i] = "test ";
+       
+    std::cout << "Default constructor called of class Brain." << std::endl;
 }
-
+ 
 Brain::Brain(const Brain & obj)
 {
-     
-    std::cout << "class(Brain): copy constructor called." << std::endl;
+    std::cout << "copy constructor called of class Brain." << std::endl;
+    ideas = new std::string[100];   
+    
+    for (size_t i = 0; i < 100; i++)
+        this->ideas[i] = obj.ideas[i];// ideas is pointor
 }
 
 Brain & Brain::operator=(const Brain & obj)
 {
+    std::cout << "Copy assignment operator called of class Brain." << std::endl;
+    
+    if(this != &obj)
+    {  
+        for (size_t i = 0; i < 100; i++)
+            this->ideas[i] = obj.ideas[i];
+    }
     return *this;
 }
-
-void Brain::settter(std::string ideas[],int size)
-{
-	for(int i = 0; i < size ; i++)
-		this->ideas[i] = ideas[i];
-	for(int i = 0; i < size ; i++)
-		std::cout << this->ideas[i] << std::endl;
-}
  
+void Brain::getValues()
+{
+    for (size_t i = 0; i < 100; i++)
+        std::cout << this->ideas[i] << std::endl;
+}
 
 Brain::~Brain()
 {
-    std::cout << "class(Brain): Destructor." << std::endl;
+    std::cout << "Destructor of class Brain." << std::endl;
+    
+    delete[] ideas;
 }

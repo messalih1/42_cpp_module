@@ -3,13 +3,13 @@
 
 ClapTrap::ClapTrap():hitPoints(10),energyPoints(10),attackDamage(0)
 {
-    std::cout << "Default constructor called" << std::endl;
+    std::cout << "ClapTrap: Default constructor called" << std::endl;
     this->name = "unknow";
 }
 
-ClapTrap::ClapTrap(const ClapTrap & obj):hitPoints(10),energyPoints(10),attackDamage(0)
+ClapTrap::ClapTrap(const ClapTrap & obj) 
 {
-    std::cout << "copy constructor called" << std::endl;
+    std::cout << "ClapTrap: copy constructor called" << std::endl;
     name = obj.name;
     hitPoints = obj.hitPoints;
     energyPoints = obj.energyPoints;
@@ -18,7 +18,7 @@ ClapTrap::ClapTrap(const ClapTrap & obj):hitPoints(10),energyPoints(10),attackDa
 
 ClapTrap & ClapTrap::operator=(const ClapTrap & obj)
 {
-    std::cout << "Copy assignment operator constructor called" << std::endl;
+    std::cout << "ClapTrap:  Copy assignment operator constructor called" << std::endl;
     if(this != &obj)
     {
         name = obj.name;
@@ -31,7 +31,7 @@ ClapTrap & ClapTrap::operator=(const ClapTrap & obj)
 
 ClapTrap::ClapTrap(std::string name):hitPoints(10),energyPoints(10),attackDamage(0)
 {
-    std::cout << "constructor with params" << std::endl;
+    std::cout << "ClapTrap: constructor with params" << std::endl;
     this->name = name; 
 }
 
@@ -42,8 +42,6 @@ void ClapTrap::attack(const std::string& target)
         energyPoints--;
         std::cout << "ClapTrap "  <<  name << " attacks " << target << ", causing " << attackDamage << " points of damage!" << std::endl;
     }
-    else
-        std::cout << "can't do anything." << std::endl;
 }
 
 void ClapTrap::takeDamage(unsigned int amount)
@@ -55,9 +53,6 @@ void ClapTrap::takeDamage(unsigned int amount)
             hitPoints = 0;
         std::cout << "ClapTrap "  << name << " lost " << amount  << " of points." << std::endl;
     }
-    else
-        std::cout << "can't do anything." << std::endl;
-
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
@@ -68,12 +63,10 @@ void ClapTrap::beRepaired(unsigned int amount)
         energyPoints--;
         std::cout << "ClapTrap "  << name << " be Repaired " << amount  << " of points." << std::endl;
     }
-    else
-        std::cout << "can't do anything." << std::endl;
 }
 
 
 ClapTrap::~ClapTrap()
 {
-    std::cout << "destructor called" << std::endl;
+    std::cout << "ClapTrap: destructor called" << std::endl;
 }

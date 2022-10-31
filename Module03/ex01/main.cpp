@@ -5,8 +5,8 @@
 
 int main()
 {
-    ClapTrap clap;
     ScavTrap scav;
+    ClapTrap clap;
     
     scav.attack("target");
     scav.attack("target");
@@ -15,9 +15,7 @@ int main()
     scav.attack("target");
     scav.attack("target");
     scav.attack("target");
-    scav.attack("target");
-    scav.attack("target");
-    scav.attack("target");
-    scav.attack("target");
-
+    scav.takeDamage(5);
+    scav.beRepaired(10);
+    scav.guardGate();
 }

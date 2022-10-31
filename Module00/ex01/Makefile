@@ -1,15 +1,20 @@
 NAME = phonebook
 
 CC = c++
+
 C_FLAGS = -Wall -Wextra -Werror -std=c++98
 
 C_FILES = main.cpp Contact.cpp PhoneBook.cpp
 
-O_FILES = main.o Contact.o PhoneBook.o
+O_FILES = $(C_FILES:.cpp=.o)
+
+
+%.o: %.cpp 
+	@${CC} ${C_FLAGS} -c $< -o $@
 
 all: ${NAME}
 
-${NAME}: ${O_FILES}
+${NAME}: ${O_FILES} 
 	@${CC} ${C_FLAGS} ${O_FILES} -o ${NAME}
 
 clean:

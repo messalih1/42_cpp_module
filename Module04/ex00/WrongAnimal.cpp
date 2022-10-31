@@ -17,6 +17,7 @@ WrongAnimal::WrongAnimal(const WrongAnimal & obj)
 
 WrongAnimal & WrongAnimal::operator=(const WrongAnimal & obj)
 {
+    std::cout << "base class(WrongAnimal): Copy assignment operator called." << std::endl;
     if(this != &obj)
         type = obj.type;
     return *this;

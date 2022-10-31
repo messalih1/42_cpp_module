@@ -14,7 +14,7 @@ class Dog: public Animal
         Dog(const Dog & obj);
         Dog & operator = (const Dog & obj);
         void makeSound()const;
-		std::string getType() const;// you must to redeclare the pure function
+		std::string getType() const; 
         ~Dog();
 };
 

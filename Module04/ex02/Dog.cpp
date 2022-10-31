@@ -36,11 +36,11 @@ void Dog::makeSound()const
     std::cout << "how how .." << std::endl;
 } 
 
+
 std::string Dog::getType()const
 {
-	std::cout << "SSSSS\n";
-	return "SSs";
-}
+    return type;
+} 
 
 Dog::~Dog()
 {

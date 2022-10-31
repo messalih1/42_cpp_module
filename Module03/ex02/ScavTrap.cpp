@@ -2,22 +2,28 @@
 #include "ClapTrap.h"
 
 
-ScavTrap::ScavTrap():ClapTrap(),hitPoints(100),energyPoints(50),attackDamage(20)
+ScavTrap::ScavTrap():ClapTrap()
 {
-    std::cout << "from derived constructor" << std::endl;
+    std::cout << "from derived ScavTrap constructor" << std::endl;
     name = "unknow";
+    hitPoints = 100;
+    energyPoints = 50;
+    attackDamage = 20;
 }
 
 
-ScavTrap::ScavTrap(std::string name):ClapTrap(name),hitPoints(100),energyPoints(50),attackDamage(20)
+ScavTrap::ScavTrap(std::string name):ClapTrap(name) 
 {
-    std::cout << "from derived pramterize constructor" << std::endl;
+    std::cout << "from derived pramterize ScavTrap constructor" << std::endl;
     this->name = name;
+    hitPoints = 100;
+    energyPoints = 50;
+    attackDamage = 20;
 }
                                    
 ScavTrap::ScavTrap(const ScavTrap & obj)
 {
-    std::cout << "from derived copy constructor called" << std::endl;
+    std::cout << "from derived ScavTrap copy constructor called" << std::endl;
     name = obj.name;
     hitPoints = obj.hitPoints;
     energyPoints = obj.energyPoints;
@@ -26,7 +32,7 @@ ScavTrap::ScavTrap(const ScavTrap & obj)
 
 ScavTrap & ScavTrap::operator=(const ScavTrap & obj)
 {
-    std::cout << "from derived Copy assignment operator constructor called" << std::endl;
+    std::cout << "from derived  ScavTrap Copy assignment operator constructor called" << std::endl;
     if(this != &obj)
     {
         name = obj.name;
@@ -48,8 +54,6 @@ void ScavTrap::attack(const std::string& target)
 		std::cout << "ScavTrap : hit points : " << hitPoints << std::endl;
 		std::cout << "ScavTrap : attackDamage points = " << attackDamage << std::endl;
     }
-    else
-        std::cout << "can't do anything." << std::endl;
 }
 
 void ScavTrap::guardGate()
@@ -59,5 +63,5 @@ void ScavTrap::guardGate()
 
 ScavTrap::~ScavTrap() 
 {
-    std::cout << "from derived destructor" << std::endl;
+    std::cout << "from ScavTrap derived destructor" << std::endl;
 }

@@ -1,10 +1,10 @@
-NAME = bureaucrat
+NAME = intern
 
 CC = c++
 
 C_FILES = main.cpp  Bureaucrat.cpp Form.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp Intern.cpp
 
-C_FLAGS = -Wall -Wextra -Werror -std=c++98
+C_FLAGS =  -Wall -Wextra -Werror -std=c++98
 
 O_FILES = $(C_FILES:.cpp=.o)
 

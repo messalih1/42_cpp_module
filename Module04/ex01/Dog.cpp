@@ -5,8 +5,8 @@
 Dog::Dog()
 {
     type = "Dog";
-    brain = new Brain();
-    std::cout << "class(Dog): Default constructor called." << std::endl;
+    brain = new Brain();// will call default constructor
+    std::cout << "Default constructor called of class Dog." << std::endl;
 }
 
 Dog::Dog(const Dog & obj)
@@ -14,12 +14,12 @@ Dog::Dog(const Dog & obj)
     type = obj.type;
     brain = new Brain();
 	*brain = *obj.brain;
-    std::cout << "class(Dog): copy constructor called." << std::endl;
+    std::cout << "copy constructor called of class Dog." << std::endl;
 }
 
 Dog & Dog::operator=(const Dog & obj)
 {
-    std::cout << "class(Dog): copy assignement constructor called." << std::endl;
+    std::cout << "copy assignement constructor called of class Dog." << std::endl;
 
     if(this != &obj)
 	{
@@ -40,5 +40,5 @@ void Dog::makeSound()const
 Dog::~Dog()
 {
 	delete brain;
-    std::cout << "class(Dog): Destructor." << std::endl;
+    std::cout << "Destructor of class Dog." << std::endl;
 }

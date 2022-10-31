@@ -7,7 +7,7 @@ ClapTrap::ClapTrap():hitPoints(10),energyPoints(10),attackDamage(0)
     this->name = "unknow";
 }
 
-ClapTrap::ClapTrap(const ClapTrap & obj):hitPoints(10),energyPoints(10),attackDamage(0)
+ClapTrap::ClapTrap(const ClapTrap & obj)
 {
     std::cout << "copy constructor called" << std::endl;
     name = obj.name;
@@ -42,8 +42,6 @@ void ClapTrap::attack(const std::string& target)
         energyPoints--;
         std::cout << "ClapTrap "  <<  name << " attacks " << target << ", causing " << attackDamage << " points of damage!" << std::endl;
     }
-    else
-        std::cout << "can't do anything." << std::endl;
 }
 
 void ClapTrap::takeDamage(unsigned int amount)
@@ -55,9 +53,6 @@ void ClapTrap::takeDamage(unsigned int amount)
             hitPoints = 0;
         std::cout << "ClapTrap "  << name << " lost " << amount  << " of points." << std::endl;
     }
-    else
-        std::cout << "can't do anything." << std::endl;
-
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
@@ -68,8 +63,6 @@ void ClapTrap::beRepaired(unsigned int amount)
         energyPoints--;
         std::cout << "ClapTrap "  << name << " be Repaired " << amount  << " of points." << std::endl;
     }
-    else
-        std::cout << "can't do anything." << std::endl;
 }
 
 

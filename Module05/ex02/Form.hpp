@@ -13,35 +13,30 @@ class Form
         const int grade_execute;
     public:
         Form();
+        Form(const std::string name, int grade, int g);
+        Form(const Form & form);
+        Form & operator = (const Form & form);
         std::string getName()const;
         int getGrade_sign()const;
         int getGrade_execute()const;
         bool isSigned()const;
         void beSigned(Bureaucrat & b); 
         virtual void execute(Bureaucrat const & executor) const = 0;
-        ~Form();
 
-    class GradeTooHighException : public std::exception
-    {
-        public:
-        const char* what() const throw()
-        { 
-            return "Form: Grade Too High Exception"; 
-        }
-    };
+        class GradeTooHighException : public std::exception
+        {
+            public:
+                const char* what() const throw();
+        };
 
-    class GradeTooLowException : public std::exception
-    {
-        public:
-        const char* what() const throw()
-        { 
-            return "Form: Grade Too Low Exception"; 
-        }
-    };
+        class GradeTooLowException : public std::exception
+        {
+            public:
+                const char* what() const throw();
+        };
+        virtual ~Form();
 };
 
-
 std::ostream  & operator << (std::ostream &COUT, Form & form);
-
 
 #endif

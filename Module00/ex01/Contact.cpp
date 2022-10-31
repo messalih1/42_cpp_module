@@ -7,7 +7,6 @@ Contact::Contact()
 {
 }
 
-
  
 int Contact::first_name()
 {

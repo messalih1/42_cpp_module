@@ -1,29 +1,21 @@
-#ifndef HUMANAB_H
-#define HUMANAB_H
+#ifndef HUMANB_H
+#define HUMANB_H
+
 
 #include "Weapon.h"
+#include "HumanA.h"
+#include "HumanB.h"
 
 class HumanB
 {
-    private:
-        Weapon *w;
-        std::string name;
+    std::string name;
+    Weapon *wB;
+    
     public:
-        HumanB();
-        HumanB(std::string str);
-        void setWeapon(Weapon &weapon);
         void attack();
-        
+        void setWeapon(Weapon &obj);
+        HumanB(std::string name);
 };
-
-
-
-
-
-
-
-
-
 
 
 

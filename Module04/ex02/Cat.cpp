@@ -39,11 +39,11 @@ void Cat::makeSound()const
     std::cout << "miew miew .." << std::endl;
 } 
 
+
 std::string Cat::getType()const
 {
-	std::cout << "SSSSS\n";
-	return "SSs";
-}
+    return type;
+} 
 
 Cat::~Cat()
 {

@@ -5,12 +5,6 @@
 
 class ScavTrap : public ClapTrap
 {
-    private:
-        std::string name;// because still prive in inheritance
-        int hitPoints;
-        int energyPoints;
-        int attackDamage;
-        
     public:
         ScavTrap();
         ScavTrap(std::string name);

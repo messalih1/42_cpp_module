@@ -1,29 +1,28 @@
-#include "Animal.h"
+#include "Animal.h" 
 #include "Dog.h"
 #include "Cat.h"
 #include "Brain.h"
 
-
-void f(void) {
-	system("leaks program");
-}
  
 
 int main()
-{
-	atexit(f);
+{ 
 	Brain brain;
 
-	std::string ideas[100] = 
-	{
-		"string 1",
-		"string 2",
-		"string 3",
-		"string 4",
-		"string 5",
-		"string 6"
-	};
-	brain.settter(ideas,5);
+ 	Brain b(brain);
+	
+    b.getValues(); 
+    
+    Brain brain1;
+	
+    Brain brain2;
+
+    brain1 = brain2;
+  
+    brain1.getValues();
+	 
+    std::cout << "====================================" << std::endl;
+    
 
 	const Animal* j = new Dog();
 	const Animal* i = new Cat();
@@ -32,8 +31,7 @@ int main()
 
 	std::cout << "====================================" << std::endl;
 
-	
-
+     
 	Animal *animal[10];
 
 	int z = 0;
@@ -49,5 +47,6 @@ int main()
 	z = 0;
 	while(z < 10)
 		delete animal[z++];
-	
+    // Dog d; //if remove * will be shellow copy and free not allocated
+    // Dog a(d);
 }

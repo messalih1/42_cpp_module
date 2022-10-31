@@ -7,12 +7,12 @@
 class Brain
 {
     private:
-        std::string  ideas[100];
+        std::string  *ideas;
     public:
         Brain();
         Brain(const Brain & obj);
         Brain & operator = (const Brain & obj);
-		void settter(std::string ideas[], int size);
+        void getValues();
         ~Brain();
 };
 

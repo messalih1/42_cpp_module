@@ -22,24 +22,18 @@ class Bureaucrat
         void increment();
         void decrement();
         void signForm(const Form & f);
-        ~Bureaucrat();
-    class GradeTooHighException : public std::exception
-    {
-        public:
-            const char* what() const throw()
-            { 
-                return "Grade Too High Exception"; 
-            }
-    };
+        class GradeTooHighException : public std::exception
+        {
+            public:
+                const char* what() const throw();
+        };
 
-    class GradeTooLowException : public std::exception
-    {
-        public:
-            const char* what() const throw()
-            { 
-                return "Grade Too Low Exception"; 
-            }
-    };
+        class GradeTooLowException : public std::exception
+        {
+            public:
+                const char* what() const throw();
+        };
+        ~Bureaucrat();
 };
 
 

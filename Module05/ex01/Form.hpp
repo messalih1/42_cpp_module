@@ -21,24 +21,19 @@ class Form
         int getGrade_execute()const;
         bool isSigned()const;
         void beSigned(Bureaucrat & b); 
-        ~Form();
-    class GradeTooHighException : public std::exception
-    {
-        public:
-            const char* what() const throw()
-            { 
-                return "Form: Grade Too High Exception"; 
-            }
-    };
+        class GradeTooHighException : public std::exception
+        {
+            public:
+                const char* what() const throw();
+        };
 
-    class GradeTooLowException : public std::exception
-    {
-        public:
-            const char* what() const throw()
-            { 
-                return "Form: Grade Too Low Exception"; 
-            }
-    };
+        class GradeTooLowException : public std::exception
+        {
+            public:
+                const char* what() const throw();
+        };
+        ~Form();
+
 
 };
 

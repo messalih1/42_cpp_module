@@ -4,7 +4,6 @@
 #include <iostream>
 #include <exception>
 #include <string>
-#include <cstring>
 
 class Bureaucrat
 {
@@ -20,20 +19,19 @@ class Bureaucrat
         int getGrade();
         void increment();
         void decrement();
+        class GradeTooHighException : public std::exception
+        {
+            public:
+                const char* what() const throw();
+        };
+
+        class GradeTooLowException : public std::exception
+        {
+            public:
+                const char* what() const throw();
+        };
         ~Bureaucrat();
 
-};
-
-class GradeTooHighException : public std::exception
-{
-    public:
-        const char* what() const throw();
-};
-
-class GradeTooLowException : public std::exception
-{
-    public:
-        const char* what() const throw();
 };
 
 

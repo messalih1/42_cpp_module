@@ -8,7 +8,7 @@
 
 class ClapTrap
 {
-    private:
+    protected:
         std::string name;
         int hitPoints;
         int energyPoints;
@@ -24,24 +24,6 @@ class ClapTrap
         void beRepaired(unsigned int amount);
         ~ClapTrap();
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 #endif

@@ -6,17 +6,19 @@
 Animal::Animal()
 {
     type = "Animal";
-    std::cout << "base class: Default constructor called." << std::endl;
+    std::cout << "Default constructor called of base class (Animal)." << std::endl;
 }
 
 Animal::Animal(const Animal & obj)
 { 
     type = obj.type;
-    std::cout << "base class: copy constructor called." << std::endl;
+    std::cout << "copy constructor called of base class (Animal)." << std::endl;
 }
 
 Animal & Animal::operator=(const Animal & obj)
 {
+    std::cout << "Copy assignment operator called of base class (Animal)." << std::endl;
+
     if(this != &obj)
         type = obj.type;
     return *this;
@@ -38,6 +40,6 @@ void Animal::makeSound()const
 
 Animal::~Animal()
 {
-    std::cout << "base class: Destructor." << std::endl;
+    std::cout << "Destructor of base class (Animal)." << std::endl;
 }
  

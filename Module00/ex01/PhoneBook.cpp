@@ -24,7 +24,7 @@ void PhoneBook::display_contacts(int index)
     std::cout << "enter index of your contact:" << std::endl;
     
     std::getline(std::cin,input);
-    x = atoi(input.c_str()); // return 0 if not digit
+    x = atoi(input.c_str());
     if(x == 0)
         std::cout << "you should enter valid number\n";    
     else if(x > index || x < 0)

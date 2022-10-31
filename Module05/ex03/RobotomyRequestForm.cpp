@@ -4,22 +4,30 @@
 
 RobotomyRequestForm::RobotomyRequestForm():sign(72),exec(45)
 {
+    std::cout << "RobotomyRequestForm: default constructor called." << std::endl;  
+
 }
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target):sign(72),exec(45)
 {
+    std::cout << "RobotomyRequestForm: parametrize constructor called." << std::endl;  
+
     this->target = target;
 }
 
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm & obj)
 {
+    std::cout << "RobotomyRequestForm: copy constructor called." << std::endl; 
+
     sign = obj.sign;
     exec = obj.exec;
 }
 
 RobotomyRequestForm & RobotomyRequestForm::operator=(const RobotomyRequestForm & obj)
 {
+    std::cout << "RobotomyRequestForm : copy assignement called." << std::endl;
+
     if(this != &obj)
     {
         sign = obj.sign;
@@ -30,9 +38,14 @@ RobotomyRequestForm & RobotomyRequestForm::operator=(const RobotomyRequestForm &
 
 
 void RobotomyRequestForm::execute(Bureaucrat const & executor) const
-{
-    (void)executor;
-
+{ 
+    if(executor.getGrade() > getGrade_execute())
+        throw GradeTooLowException();
+    if(!isSigned())
+    {
+        std::cout << "it not signed...." << std::endl;
+        return ;
+    }
     std::cout << "ZZZZZZZZZZZ" << std::endl;
 
     srand(time(NULL));
@@ -46,11 +59,9 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor) const
 }
 
 
-
-    
-
 RobotomyRequestForm::~RobotomyRequestForm()
 {
+    std::cout << "RobotomyRequestForm: destructor called." << std::endl;  
 }
 
 

@@ -4,12 +4,41 @@
 
 Bureaucrat::Bureaucrat():name("Default name"),grade(1)
 {
+    std::cout << "Bureaucrat: default constructor called." << std::endl;
     if(grade < 1)
         throw GradeTooHighException();
     else if(grade > 150)
         throw GradeTooLowException();
 }
 
+Bureaucrat::Bureaucrat(const std::string n, int g):name(n),grade(g)
+{
+    std::cout << "Bureaucrat: constructor parametarize called." << std::endl;
+    if(grade < 1)
+        throw GradeTooHighException();
+    else if(grade > 150)
+        throw GradeTooLowException();
+}
+
+Bureaucrat::Bureaucrat(const Bureaucrat & obj):name(obj.name)
+{
+    std::cout << "Bureaucrat: copy constructor called." << std::endl;
+    grade = obj.grade;
+}
+
+
+Bureaucrat & Bureaucrat::operator = (const Bureaucrat & obj) 
+{
+    std::cout << "Bureaucrat: operator assignement called." << std::endl;
+    
+    if(grade < 1)
+        throw GradeTooHighException();
+    else if(grade > 150)
+        throw GradeTooLowException();
+    
+    grade = obj.grade;
+    return *this;
+}
 
 int Bureaucrat::getGrade()const
 {
@@ -40,11 +69,29 @@ std::ostream & operator << (std::ostream & COUT, Bureaucrat & b)
     COUT << b.getName() << ", bureaucrat grade " <<  b.getGrade();
     return COUT;
 }
+
+const char * Bureaucrat::GradeTooHighException::what () const throw()
+{
+    return "Bureaucrat: Grade Too High Exception";
+}
+
+const char * Bureaucrat::GradeTooLowException::what () const throw()
+{
+    return "Bureaucrat: Grade Too Low Exception";
+}
  
 
-void Bureaucrat::executeForm(Form const & form)
+void Bureaucrat::signForm(Form const & form)
 {
-    if(!form.isSigned())
+    if(form.isSigned() == true)
+        std::cout <<  getName() << " signed " << form.getName() << std::endl;
+    else
+        std::cout << getName() << " couldn't sign " << form.getName() << " because his grade is too low." << std::endl;
+}
+
+void Bureaucrat::executeForm(Form const & form)
+{ 
+    if(form.isSigned() == false)
     {
         std::cout << "it not signed...." << std::endl;
         return ;
@@ -55,15 +102,8 @@ void Bureaucrat::executeForm(Form const & form)
     std::cout << name << " Executed " << form.getName() << std::endl;
 }
 
-
-void Bureaucrat::signForm(Form &form)
+Bureaucrat::~Bureaucrat()
 {
-    if(form.isSigned())
-        std::cout <<  getName() << " signed " << form.getName() << std::endl;
-    else
-        std::cout << getName() << " couldn't sign " << form.getName() << " because " << form.isSigned() << std::endl;
+    std::cout << "Bureaucrat: destructor called." << std::endl;
 }
-
-// Bureaucrat::~Bureaucrat()
-// {
-// }
+ 

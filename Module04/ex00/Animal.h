@@ -1,7 +1,7 @@
 #ifndef ANILMAL_H
 #define ANILMAL_H
 
-
+ 
 #include <iostream>
 #include <string>
 #include <cstring>

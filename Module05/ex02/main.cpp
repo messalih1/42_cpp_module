@@ -7,26 +7,46 @@
  
 int main()
 {
-     
+    try {
+		ShrubberyCreationForm s("0");
+        Bureaucrat b("Bob 1", 100);
 
-	Bureaucrat b; 
+		s.beSigned(b);
+	    b.signForm(s);
 
-	ShrubberyCreationForm	shru("abduh");
-	RobotomyRequestForm Robot("Robot");
-	PresidentialPardonForm Presi("Peri");
-	
-	try
-	{ 
-		std::cout << b << std::endl;
-		shru.beSigned(b);
-	 
-		Robot.beSigned(b);
-		Robot.execute(b); 
-	}
-	catch(std::exception& e)
-	{
-		std::cout << "Bureaucrat " << e.what() << '\n';
-	}
+        b.executeForm(s);
+		 
+    }
+    catch (std::exception & e) {
+        std::cout << "Exception: " << e.what() << std::endl;
+    }
 
+    try {
+        RobotomyRequestForm robot("robot");
+        Bureaucrat b("Bob 2", 44);
+
+		robot.beSigned(b);
+	    b.signForm(robot);
+
+        b.executeForm(robot);
+    }
+    catch (std::exception & e) {
+        std::cout << "Exception: " << e.what() << std::endl;
+    }
+
+    try {
+         
+		PresidentialPardonForm pres("pres");
+        Bureaucrat b("Bob 3 ", 44);
+
+		pres.beSigned(b);
+	    b.signForm(pres);
+
+        b.executeForm(pres);
+
+    }
+    catch (std::exception & e) {
+        std::cout << "Exception: " << e.what() << std::endl;
+    }
 
 }

@@ -6,8 +6,6 @@
  
 class Cat : public Animal
 {
-    private:
-        
     public:
         Cat();
         Cat(const Cat & obj);

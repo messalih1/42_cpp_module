@@ -1,12 +1,10 @@
 #include "Zombie.h"
 
 
-
-Zombie* newZombie( std::string name )
+Zombie*  newZombie( std::string name )
 {
-    Zombie * zombie = new Zombie();
+    Zombie *z = new Zombie();
 
-    zombie->setName(name);
-
-    return zombie;
-}   
+    z->setName(name);
+    return z;
+}

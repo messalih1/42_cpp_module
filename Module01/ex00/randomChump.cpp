@@ -3,11 +3,10 @@
 
 
 
-
-void randomChump( std::string name )
+void  randomChump( std::string name )
 {
-    Zombie zombie;
+    Zombie z;
 
-    zombie.setName(name);
-    zombie.announce();
+    z.setName(name);
+    z.announce();
 }

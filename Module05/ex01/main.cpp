@@ -6,22 +6,32 @@ int main()
 {
     try
     {
-        // Bureaucrat b("b",10);
-        // Bureaucrat c("ff",50);
+        Form f;
 
-        // c = b;
+        Bureaucrat b;
 
-        Form form("no",5,55);
-        Form f("SA",10,55);
+        // b.decrement();
 
-        f = form;
+        f.beSigned(b);
+        b.signForm(f);
 
-        // // form.beSigned(b);
-        std::cout << f.getName() << std::endl;
+        std::cout << b << std::endl;
+        std::cout << "==============================" << std::endl;
+
+        Form form("abduh",100,50);
+        
+        Bureaucrat bu("mustapha",111);
+
+        form.beSigned(bu);
+        
+        bu.signForm(form);
+
+
+        std::cout << form << std::endl;
+
+        // destructor destroy first of b and f if not throw execption
     }   
-    // beacuse exception is the parent class and hold all child
-    // in place o
-    catch(std::exception & e)// because what() in class exception
+    catch(std::exception & e) 
     {
         std::cout << e.what() << std::endl;
     }  

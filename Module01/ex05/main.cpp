@@ -4,15 +4,17 @@
 
 
 
-int main()
-{
-    Harl harl;
 
-    harl.complain("debug");
-    harl.complain("info");
-    harl.complain("warning");
-    harl.complain("error");
-    
+ 
+int main() {
 
 
+    Harl obj;
+
+    obj.complain("DEBUG");
+    obj.complain("INFO");
+    obj.complain("WAsRNING");
+    obj.complain("ERROR");
+
+   return 0;
 }

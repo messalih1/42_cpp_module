@@ -6,8 +6,11 @@
 #include "Form.hpp"
 class Intern  
 {
+     Form *f[3];
      public:
-          Intern(/* args */);
+          Intern();
+          Intern(const Intern & obj);
+          Intern & operator = (const Intern & obj);
           Form * makeForm(std::string name, std::string target);
           ~Intern();
 };
